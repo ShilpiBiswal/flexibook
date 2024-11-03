@@ -2,7 +2,9 @@ import React from 'react'
 
 const DashboardLayout = () => {
   return (
-    <div>DashboardLayout</div>
+    <div>
+        <OutLet/>
+    </div>
   )
 }
 
