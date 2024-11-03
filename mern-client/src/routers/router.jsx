@@ -36,6 +36,20 @@ import SingleBook from "../shop/SingleBook";
       }
       ]
     },
+    {
+      path: "/admin/dashboard",
+      element: <DashboardLayout/>,
+      children: [
+        {
+          path: "/admin/dashboard",
+          element: <Dashboard/>  //private routing
+        },
+        {
+          path: "/admin/dashboard/upload",
+          element: <UploadBook/>
+        }
+      ]
+    }
   ]);
 
   export default router;
