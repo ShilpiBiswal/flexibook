@@ -13,6 +13,7 @@ const UploadBook = () => {
     "Horror",
     "Bibliography",
     "Autobiography",
+    "Biography",
     "History",
     "Self-help",
     "Memoir",
