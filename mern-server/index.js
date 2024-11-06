@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 const { MongoClient, ObjectId } = require('mongodb');
 
 // Connection URI
-const uri = 'mongodb://shilpi:shilpi0411@localhost:27017';
+const uri = 'mongodb://localhost:27017/';
 
 // Create a new MongoClient
 const client = new MongoClient(uri);

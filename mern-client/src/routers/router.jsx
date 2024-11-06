@@ -10,6 +10,9 @@ import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
+import DashboardLayout from "../dashboard/DashboardLayout";
+import Dashboard from "../dashboard/Dashboard";
+import UploadBook from "../dashboard/UploadBook";
   const router = createBrowserRouter([
     {
       path: "/",
