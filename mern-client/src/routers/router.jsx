@@ -3,13 +3,16 @@ import {
     RouterProvider,
   } from "react-router-dom";
 import App from "../App";
-import Home from "../Home/home";
+import Home from "../Home/Home";
 import Shop from "../shop/Shop";
 import About from "../components/About";
 import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
+import DashboardLayout from "../dashboard/DashboardLayout";
+import Dashboard from "../dashboard/Dashboard";
+import UploadBook from "../dashboard/UploadBook"
   const router = createBrowserRouter([
     {
       path: "/",
