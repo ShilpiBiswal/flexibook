@@ -1,6 +1,7 @@
 import React from 'react'
 import { AuthContext } from '../contacts/AuthProvider'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 const Logout = () => {
     const {logOut} = useContext(AuthContext);
