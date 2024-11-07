@@ -14,7 +14,7 @@ import { Pagination } from 'swiper/modules';
 import { FaCartShopping } from 'react-icons/fa6'
 
 const BookCard = ({headline,books}) => {
-    console.log(books);
+    // console.log(books);
 
   return (
     <div className='my-16 px-4 lg:px-24'>
