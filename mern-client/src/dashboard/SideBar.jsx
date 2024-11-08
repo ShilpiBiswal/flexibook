@@ -22,12 +22,6 @@ const SideBar = () => {
           <Sidebar.Item href="/admin/dashboard/manage" icon={HiInbox}>
             Manage Books
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiUser}>
-            Users
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
-            Products
-          </Sidebar.Item>
           <Sidebar.Item href="/login" icon={HiArrowSmRight}>
             Sign In
           </Sidebar.Item>
@@ -35,17 +29,7 @@ const SideBar = () => {
             Log Out
           </Sidebar.Item>
         </Sidebar.ItemGroup>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Upgrade to Pro
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Documentation
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiSupport}>
-            Help
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
+       
       </Sidebar.Items>
     </Sidebar>
   )

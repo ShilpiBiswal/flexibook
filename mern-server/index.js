@@ -25,8 +25,8 @@ const client = new MongoClient(uri);
 const dbName = 'BookInventory'; // Ensure dbName is available throughout
 const collectionName = 'books';
 
-const replicateAPIKey = 'r8_16bNlqBW4iQfRaLdJluAl181vhpWalE3d5aVL';  // Add your Replicate API key here
-const replicateModelURL = 'https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions';
+//const replicateAPIKey = 'r8_16bNlqBW4iQfRaLdJluAl181vhpWalE3d5aVL';  // Add your Replicate API key here
+//const replicateModelURL = 'https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions';
 
 
 
@@ -38,21 +38,19 @@ async function connect() {
     //create collection
     const bookCollections=client.db("BookInventory").collection("books");
     
-    
-
-    //insert book using post method
+   
     app.post("/upload-book",async(req,res)=>{
       const data=req.body;
       const result=await bookCollections.insertOne(data);
       res.send(result);
     })
-    //get all books from database : get
+    
     app.get("/all-books",async(req,res)=>{
       const books=bookCollections.find();
       const result=await books.toArray();
       res.send(result);
     })
-    //update a book data : patch or post
+    
     app.patch("/book/:id",async(req,res)=>{
       const id=req.params.id;
       //console.log(id);
@@ -69,7 +67,6 @@ async function connect() {
       res.send(result);
     })
 
-    //delete a book data
     app.delete("/book/:id",async(req,res)=>{
       const id=req.params.id;
       const filter={_id: new ObjectId(id)};
@@ -77,7 +74,6 @@ async function connect() {
       res.send(result);
     })
     
-    //find by category
     app.get("/all-books",async(req,res)=>{
       let query={};
       if(req.query?.category){
@@ -87,7 +83,6 @@ async function connect() {
       res.send(result);
     })
 
-    //get single book data
     app.get("/book/:id",async(req,res)=>{
       const id=req.params.id;
       const filter={_id:new ObjectId(id)};
@@ -134,14 +129,14 @@ async function connect() {
     
             // Make the request to Groq API using axios
             const response = await axios.post(
-              'https://api.groq.com/openai/v1/chat/completions', // Groq's API URL
+              'https://api.groq.com/openai/v1/chat/completions', 
               {
-                model: 'llama3-8b-8192', // Or replace with the appropriate Groq model
+                model: 'llama3-8b-8192', 
                 messages: [{ role: 'user', content: message }],
               },
               {
                 headers: {
-                  'Authorization': 'Bearer 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', // Your Groq API key
+                  'Authorization': 'Bearer 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', 
                   'Content-Type': 'application/json',
                 },
               }
