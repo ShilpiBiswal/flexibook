@@ -12,7 +12,7 @@ const ExpandableCard = ({ book }) => {
     <Card className="relative flex flex-col h-full">
       <div className="h-96 overflow-hidden">
         <img 
-          src={book.imageURL} 
+          src={book.imageUrl} 
           alt={book.bookTitle}
           className="w-full h-full object-cover"
         />

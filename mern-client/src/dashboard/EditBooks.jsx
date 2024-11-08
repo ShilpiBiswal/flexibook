@@ -7,10 +7,10 @@ const EditBooks = () => {
   const loadedData = useLoaderData();
   const [bookTitle, setBookTitle] = useState(loadedData.bookTitle || '');
   const [authorName, setAuthorName] = useState(loadedData.authorName || '');
-  const [imageURL, setImageURL] = useState(loadedData.imageURL || '');
+  const [imageURL, setImageURL] = useState(loadedData.imageUrl || '');
   const [category, setCategory] = useState(loadedData.category || '');
   const [bookDescription, setBookDescription] = useState(loadedData.bookDescription || '');
-  const [bookPDFURL, setBookPDFURL] = useState(loadedData.bookPDFURL || '');
+  const [bookPDFURL, setBookPDFURL] = useState(loadedData.bookPdfUrl || '');
 
   const bookCategories = [
     "Fiction", "Non-Fiction", "Mystery", "Programming", "Science Fiction",

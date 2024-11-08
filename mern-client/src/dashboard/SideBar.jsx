@@ -8,7 +8,7 @@ const SideBar = () => {
   const {user} = useContext(AuthContext)
   return (
     <Sidebar aria-label="Sidebar with content separator example">
-      <Sidebar.Logo href="/" img={user?.photoURL} imgAlt="user logo" className='w-16 h-16 rounded'>
+      <Sidebar.Logo href="/" img={userImg} imgAlt="user logo" className='w-16 h-16 rounded'>
         {user?.displayName || "Demo User"}
       </Sidebar.Logo>
       <Sidebar.Items>
