@@ -4,7 +4,7 @@ import bookPic from '../assets/banner-books/awardbooks.png'
 
 const PromoBanner = () => {
   return (
-    <div className='mt-16 py-12 px-4 lg:px-24' style={{backgroundColor : '#f658b8'}}>
+    <div className='mt-16 py-12 px-4 lg:px-24' style={{backgroundColor : '#f29ad8'}}>
         <div className='flex flex-col md:flex-row justify-between items-center gap-12'>
             <div className='md:w-1/2'>
                 <h2 className='text-4xl font-bold mb-6 leading-snug'>2023 National Book Awards fo Fiction Shortlist</h2>
