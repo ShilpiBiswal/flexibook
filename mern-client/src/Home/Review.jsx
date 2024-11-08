@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {FaStar} from 'react-icons/fa6'
+import {FaStar} from 'react-icons/fa6';
+import StarRating from '../Home/StarRating';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,7 +18,7 @@ import proPic from '../assets/banner-books/profile.jpg'
 const Review = () => {
   return (
     <div className='my-12 px-4 lg:px-24'>
-        <h2 className='text-5xl font-bold text-center mb-10 leading-snug'>Our customers</h2>
+        <h2 className='text-5xl font-bold text-center mb-10 leading-snug'>Reviews</h2>
         <div>
         <Swiper
         slidesPerView={1}
@@ -44,68 +45,52 @@ const Review = () => {
       >
         <SwiperSlide className='shadow-2xl bg-white py-8 px-4 md:m-5 rounded-lg border'>
             <div className='space-y-6'>
-                <div className='text-amber-500 flex gap-2'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                </div>
+            <StarRating rating={4} /> 
                 <div className='mt-7'>
-                    <p className='mb-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod placeat veritatis nam earum eos quo minima sed est laudantium id, porro totam ullam sapiente magnam asperiores labore ad sequi quis!</p>
+                    <p className='mb-5'>"I loved the concept of choosing different lives and exploring the 'what ifs.' It’s a beautiful reminder that every choice we make matters, even the little ones. 
+                      Haig’s writing felt comforting, and the book itself was surprisingly uplifting, considering the deep subject matter. A bit predictable toward the end, but a great read overall!"</p>
                     <Avatar  alt="avatar of Jese" img={proPic} rounded className='w-10 mb-4' />
-                    <h5 className='text-lg font-medium'>Jane Doe</h5>
-                    <p className='text-base'>CEO,ABC Ltd.</p>
+                    <h5 className='text-lg font-medium'>Sarah M.</h5>
+                    <p className='text-base'>"The Midnight Library" by Matt Haig</p>
                 </div>
 
             </div>
         </SwiperSlide>
         <SwiperSlide  className='shadow-2xl bg-white py-8 px-4 md:m-5 rounded-lg border'>
             <div className='space-y-6'>
-                <div className='text-amber-500 flex gap-2'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                </div>
+            <StarRating rating={5} /> 
                 <div className='mt-7'>
-                    <p className='mb-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod placeat veritatis nam earum eos quo minima sed est laudantium id, porro totam ullam sapiente magnam asperiores labore ad sequi quis!</p>
+                    <p className='mb-5'>"This book captivated me with its rich descriptions of the marshlands and its unusual heroine, Kya. Owens does a brilliant job blending mystery with coming-of-age themes, and the twist at the end left me in complete shock. 
+                      It’s haunting, beautiful, and will stay with you long after the final page."</p>
                     <Avatar  alt="avatar of Jese" img={proPic} rounded className='w-10 mb-4' />
-                    <h5 className='text-lg font-medium'>Jane Doe</h5>
-                    <p className='text-base'>CEO,ABC Ltd.</p>
+                    <h5 className='text-lg font-medium'>Michael L.</h5>
+                    <p className='text-base'>"Where the Crawdads Sing" by Delia Owens</p>
                 </div>
 
             </div>
         </SwiperSlide>
         <SwiperSlide  className='shadow-2xl bg-white py-8 px-4 md:m-5 rounded-lg border'>
             <div className='space-y-6'>
-                <div className='text-amber-500 flex gap-2'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                </div>
+                <StarRating rating={3} />
                 <div className='mt-7'>
-                    <p className='mb-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod placeat veritatis nam earum eos quo minima sed est laudantium id, porro totam ullam sapiente magnam asperiores labore ad sequi quis!</p>
+                    <p className='mb-5'>"It was a fun read, but the hype set my expectations too high. The unique interview format took some getting used to, but once I did, the story flowed pretty quickly. I enjoyed the rock-and-roll vibes and complex relationships, but I wanted more depth in some of the character arcs. 
+                      A good read, especially if you’re into music history."</p>
                     <Avatar  alt="avatar of Jese" img={proPic} rounded className='w-10 mb-4' />
-                    <h5 className='text-lg font-medium'>Jane Doe</h5>
-                    <p className='text-base'>CEO,ABC Ltd.</p>
+                    <h5 className='text-lg font-medium'>Marco R.</h5>
+                    <p className='text-base'>"Daisy Jones & The Six" by Taylor Jenkins Reid</p>
                 </div>
 
             </div>
         </SwiperSlide>
         <SwiperSlide  className='shadow-2xl bg-white py-8 px-4 md:m-5 rounded-lg border'>
             <div className='space-y-6'>
-                <div className='text-amber-500 flex gap-2'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                </div>
+            <StarRating rating={5} />
                 <div className='mt-7'>
-                    <p className='mb-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod placeat veritatis nam earum eos quo minima sed est laudantium id, porro totam ullam sapiente magnam asperiores labore ad sequi quis!</p>
+                    <p className='mb-5'> "Circe is one of those books you don’t want to end. The writing is beautiful, and Miller breathes new life into Greek mythology, focusing on a lesser-known character who has always fascinated me. Circe’s journey from outcast to powerful figure resonated deeply. 
+                      It’s a slow burn, but if you love lyrical prose and mythology, it’s a must-read."</p>
                     <Avatar  alt="avatar of Jese" img={proPic} rounded className='w-10 mb-4' />
-                    <h5 className='text-lg font-medium'>Jane Doe</h5>
-                    <p className='text-base'>CEO,ABC Ltd.</p>
+                    <h5 className='text-lg font-medium'>Alex K.</h5>
+                    <p className='text-base'>"Circe" by Madeline Miller</p>
                 </div>
 
             </div>
