@@ -17,7 +17,7 @@ import proPic from '../assets/banner-books/profile.jpg'
 
 const Review = () => {
   return (
-    <div className='my-12 px-4 lg:px-24'>
+    <div className='my-12 px-4 lg:px-24' style={{backgroundColor: '#fca0ed' }}>
         <h2 className='text-5xl font-bold text-center mb-10 leading-snug'>Reviews</h2>
         <div>
         <Swiper
