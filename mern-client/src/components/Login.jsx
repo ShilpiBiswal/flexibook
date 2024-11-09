@@ -47,7 +47,7 @@ const Login = () => {
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                 <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+                    className="absolute inset-0 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" style={{ backgroundImage: 'linear-gradient(to bottom right,#f29ad8,#f039b1)'}}>
                 </div>
                 <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
                     <div className="max-w-md mx-auto">
@@ -65,9 +65,9 @@ const Login = () => {
 
                                 {error ? <p className='text-red-600 text-base'>Email or password is incorrect...</p> : ""}
 
-                                <p>If you don't have an account please <Link to="/sign-up" classNameName='text-blue-700 underline'>Log in</Link> here</p>
+                                <p>If you don't have an account please <Link to="/sign-up" style={{color:'#f658b8'}}>Sign up</Link> here</p>
                                 <div className="relative">
-                                    <button classNameName="bg-blue-500 text-white rounded-md px-6 py-2">Sign Up</button>
+                                    <button classNameName="" style={{color:'white', backgroundColor:'#f658b8', borderRadius:'4rem', width:'5rem', height:'2.5rem'}}>Login</button>
                                 </div>
                             </form>
                         </div>
