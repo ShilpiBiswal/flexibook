@@ -1,7 +1,7 @@
 //import { Sidebar } from 'flowbite-react'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import SideBar from './Sidebar';
+import SideBar from '../dashboard/Sidebar';
 
 const DashboardLayout = () => {
   return (
