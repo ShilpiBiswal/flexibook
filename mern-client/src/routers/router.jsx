@@ -69,15 +69,15 @@ import Logout from "../components/Logout";
       ]
     },
     {
-      path: "sign-up",
+      path: "/sign-up",
       element: <SignUp/>
     },
     {
-      path: "login",
+      path: "/login",
       element:<Login/>
     },
     {
-      path: "logout",
+      path: "/logout",
       element: <Logout/>
     }
 
