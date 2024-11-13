@@ -9,7 +9,7 @@ const FavBook = () => {
         </div>
         <div className='md:w-1/2 space-y-6'>
             <h2 className='text-5xl font-bold my-5 md:w-3/4 leading-snug'>Find your Favorite <span className='text-blue-700'>Book Here!</span></h2>
-            <p className='mb-10 text-lg md:w-5/6'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, inventore. Vero explicabo tempore, est minus illum nulla dolorum perspiciatis eligendi saepe, voluptates atque temporibus architecto quas. Ullam quis suscipit ea!</p>
+            <p className='mb-10 text-lg md:w-5/6'>Discover a wide variety of books that suit your interests! Whether you're looking for thrilling adventures, heartwarming stories, or insightful non-fiction, we have something for everyone. Dive into the world of captivating narratives, intriguing characters, and unforgettable journeys. Explore, choose, and enjoy your next great read today!</p>
             <div className='flex flex-col sm:flex-row justify-between gap-6 md:w-3/4 my-14'>
                 <div>
                     <h3 className='text-3xl font-bold'>800+</h3>

@@ -50,8 +50,8 @@ import Logout from "../components/Logout";
       element: <DashboardLayout/>,
       children: [
         {
-          path: "/admin/dashboard",
-          element: <PrivateRoute><Dashboard/></PrivateRoute>  //private routing
+          // path: "/admin/dashboard",
+          // element: <PrivateRoute><Dashboard/></PrivateRoute>  //private routing
         },
         {
           path: "/admin/dashboard/upload",

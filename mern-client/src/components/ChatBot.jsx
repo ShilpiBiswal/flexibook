@@ -3,36 +3,36 @@ import axios from 'axios';
 
 const ChatComponent = () => {
   const [inputMessage, setInputMessage] = useState('');
-  const [messages, setMessages] = useState([]); // Store all messages here
+  const [messages, setMessages] = useState([]); // storing messages
   const [loading, setLoading] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  // Function to handle sending message and getting response
+  // sending message and getting response
   const handleSendMessage = async () => {
     if (!inputMessage) return;
 
     const userMessage = { sender: 'user', message: inputMessage };
-    setMessages([...messages, userMessage]); // Add user's message to the messages array
+    setMessages([...messages, userMessage]); //adding user's message to the messages array
 
     setLoading(true);
     try {
       const res = await axios.post('http://localhost:5500/chat', { message: inputMessage });
       const botResponse = { sender: 'bot', message: res.data.response };
-      setMessages([...messages, userMessage, botResponse]); // Add bot's response to the messages array
+      setMessages([...messages, userMessage, botResponse]); //bot's response to the messages array
     } catch (error) {
       console.error('Error sending message:', error);
       const botErrorResponse = { sender: 'bot', message: 'Error occurred, please try again.' };
-      setMessages([...messages, userMessage, botErrorResponse]); // Add error message
+      setMessages([...messages, userMessage, botErrorResponse]); 
     } finally {
       setLoading(false);
     }
 
-    setInputMessage(''); // Clear input field after sending
+    setInputMessage(''); //clear input
   };
 
   return (
     <div>
-      {/* Button to open the chat */}
+      {/* open chat button */}
       {!isChatOpen && (
         <button
           onClick={() => setIsChatOpen(true)}
@@ -42,13 +42,13 @@ const ChatComponent = () => {
         </button>
       )}
 
-      {/* Chat popup */}
+      {/* chat popup */}
       {isChatOpen && (
         <div
           className="fixed bottom-6 right-6 bg-white rounded-lg shadow-lg w-80 h-96 p-4 z-50 overflow-hidden transition-transform transform duration-300"
           style={{ zIndex: 9999 }}
         >
-          {/* Close button */}
+          {/* close button */}
           <button
             onClick={() => setIsChatOpen(false)}
             className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none"
@@ -57,9 +57,9 @@ const ChatComponent = () => {
           </button>
 
           <div className="chat-box flex flex-col h-full p-4 space-y-3">
-            {/* This is the main container for chat messages */}
+
             <div className="chat-messages mb-4 flex-1 overflow-y-auto space-y-4">
-              {/* Render all messages */}
+              
               {messages.map((msg, index) => (
                 <div
                   key={index}
@@ -70,7 +70,7 @@ const ChatComponent = () => {
               ))}
             </div>
 
-            {/* Chat input container with adjusted flex properties */}
+            
             <div className="chat-input flex items-center mt-4 space-x-2 -ml-4">
               <input
                 type="text"

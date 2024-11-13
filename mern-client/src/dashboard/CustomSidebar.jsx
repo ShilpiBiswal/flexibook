@@ -13,9 +13,9 @@ const CustomSideBar = () => {
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
+          {/* <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
             Dashboard
-          </Sidebar.Item>
+          </Sidebar.Item> */}
           <Sidebar.Item href="/admin/dashboard/upload" icon={HiOutlineCloudUpload}>
             Upload Books
           </Sidebar.Item>

@@ -24,7 +24,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 // Connection URI
 const uri = 'mongodb://shilpi:shilpi0411@localhost:27017/';
 
-// Create a new MongoClient
+// MongoClient
 const client = new MongoClient(uri);
 const dbName = 'BookInventory'; // Ensure dbName is available throughout
 const collectionName = 'books';
@@ -35,11 +35,11 @@ const collectionName = 'books';
 
 
 
-// Connect to the MongoDB database
+// connecting 
 async function connect() {
   try {
     await client.connect();
-    //create collection
+    //creating collection
     const bookCollections=client.db("BookInventory").collection("books");
     
    
@@ -109,29 +109,29 @@ async function connect() {
       }
     
       try {
-        let responseText = ''; // Initialize the response message
-        let booksFromDb = []; // Variable to store MongoDB results
+        let responseText = ''; // initialising response
+        let booksFromDb = []; 
     
-        // Handle book description request (like "Tell me about 'Book Title'" or "book description")
+        // handling local requests
         if (message.toLowerCase().includes('tell me about') || message.toLowerCase().includes('book description')) {
-          const bookTitle = message.split('about')[1].trim(); // Extract book title from message
+          const bookTitle = message.split('about')[1].trim(); // book title from message
     
-          // Query MongoDB for the book's description
+          // querying mongo
           const book = await bookCollections.findOne({ bookTitle: new RegExp(bookTitle, 'i') });
     
           if (book) {
-            // If book is found in the DB, use the description from DB
+            // if found in db use that
             responseText = `
             **Book Description for "${book.bookTitle}":**
             > ${book.bookDescription}
             `;
           } else {
-            // If book is not found in the DB, check external sources (Groq API)
+            // external sources
             responseText = `
             **No description found for "${bookTitle}". Searching external sources...**
             `;
     
-            // Make the request to Groq API using axios
+            // groq api request
             const response = await axios.post(
               'https://api.groq.com/openai/v1/chat/completions', 
               {
@@ -146,7 +146,7 @@ async function connect() {
               }
             );
     
-            // Include only concise text if Groq response contains suggestions
+            // concise answers
             if (response.data && response.data.choices && response.data.choices.length > 0) {
               responseText += `
               **Suggested Description from External Sources:**
@@ -160,11 +160,9 @@ async function connect() {
           }
         }
     
-        // Handle genre search (like "find books in genre Fiction")
+        //genre search 
         else if (message.toLowerCase().includes('find books in genre')) {
           const genre = message.split('genre')[1].trim(); // Extract genre from message
-    
-          // Query MongoDB for books in the specified genre
           booksFromDb = await bookCollections.find({ category: new RegExp(genre, 'i') }).toArray();
     
           if (booksFromDb.length > 0) {
@@ -173,16 +171,16 @@ async function connect() {
             ${booksFromDb.map((b, index) => `${index + 1}. ${b.bookTitle}`).join('\n')}
             `;
           } else {
-            // If no books found, check external sources (Groq API)
+            // external sources 
             responseText = `
             **No books found in genre "${genre}". Searching external sources...**
             `;
     
-            // Make the request to Groq API using axios
+            
             const response = await axios.post(
-              'https://api.groq.com/openai/v1/chat/completions', // Groq's API URL
+              'https://api.groq.com/openai/v1/chat/completions', 
               {
-                model: 'llama3-8b-8192', // Or replace with the appropriate Groq model
+                model: 'llama3-8b-8192', 
                 messages: [{ role: 'user', content: message }],
               },
               {
@@ -193,7 +191,7 @@ async function connect() {
               }
             );
     
-            // Include only concise text if Groq response contains suggestions
+            
             if (response.data && response.data.choices && response.data.choices.length > 0) {
               responseText += `
               **Suggested Books from External Sources:**
@@ -207,11 +205,11 @@ async function connect() {
           }
         }
     
-        // Handle author search (like "find books by author")
+        //search based on author
         else if (message.toLowerCase().includes('find books by author')) {
           const author = message.split('author')[1].trim(); // Extract author name from message
     
-          // Query MongoDB for books by the specified author
+          
           booksFromDb = await bookCollections.find({ authorName: new RegExp(author, 'i') }).toArray();
     
           if (booksFromDb.length > 0) {
@@ -220,16 +218,16 @@ async function connect() {
             ${booksFromDb.map((b, index) => `${index + 1}. ${b.bookTitle}`).join('\n')}
             `;
           } else {
-            // If no books found, check external sources (Groq API)
+            // external sources
             responseText = `
             **No books found by author "${author}". Searching external sources...**
             `;
     
-            // Make the request to Groq API using axios
+            //api request
             const response = await axios.post(
-              'https://api.groq.com/openai/v1/chat/completions', // Groq's API URL
+              'https://api.groq.com/openai/v1/chat/completions', 
               {
-                model: 'llama3-8b-8192', // Or replace with the appropriate Groq model
+                model: 'llama3-8b-8192', 
                 messages: [{ role: 'user', content: message }],
               },
               {
@@ -240,7 +238,7 @@ async function connect() {
               }
             );
     
-            // Include only concise text if Groq response contains suggestions
+           
             if (response.data && response.data.choices && response.data.choices.length > 0) {
               responseText += `
               **Suggested Books from External Sources:**
@@ -254,15 +252,15 @@ async function connect() {
           }
         }
     
-        // Fallback for any other message (external sources)
+      
         else {
           responseText = 'Searching for your query in external sources...';
     
-          // Make the request to Groq API for any other query
+         
           const response = await axios.post(
-            'https://api.groq.com/openai/v1/chat/completions', // Groq's API URL
+            'https://api.groq.com/openai/v1/chat/completions', 
             {
-              model: 'llama3-8b-8192', // Or replace with the appropriate Groq model
+              model: 'llama3-8b-8192', 
               messages: [{ role: 'user', content: message }],
             },
             {
@@ -273,7 +271,7 @@ async function connect() {
             }
           );
     
-          // Include only concise text if Groq response contains suggestions
+         
           if (response.data && response.data.choices && response.data.choices.length > 0) {
             responseText = `
             
@@ -286,7 +284,7 @@ async function connect() {
           }
         }
     
-        // Send the final formatted response (either from MongoDB or Groq)
+        // final formatted response
         res.json({ response: responseText.trim() });
     
       } catch (error) {
