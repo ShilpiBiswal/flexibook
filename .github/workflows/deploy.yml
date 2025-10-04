@@ -34,4 +34,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push flexibook:${{ github.sha }}
+        run: docker push shilpibiswal/flexibook:${{ github.sha }}
