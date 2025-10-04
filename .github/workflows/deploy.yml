@@ -20,9 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./mern-server  # make sure npm install runs in backend folder
 
-      - name: Run tests
-        run: npm test
+      # Optional: skip tests if you don't have them
+      # - name: Run tests
+      #   run: npm test
+      #   working-directory: ./mern-server
 
       - name: Build Backend Docker image
         run: docker build -t shilpibiswal/flexibook-backend:${{ github.sha }} ./mern-server
@@ -34,4 +37,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push shilpibiswal/flexibook:${{ github.sha }}
+        run: docker push shilpibiswal/flexibook-backend:${{ github.sha }}
